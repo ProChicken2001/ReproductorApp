@@ -25,7 +25,7 @@ object FileUtils {
     fun getUriForFile(context: Context, file: File): Uri {
         return FileProvider.getUriForFile(
             context,
-            "app.video.grabadoravideo.fileprovider",
+            "com.sv.edu.ufg.fis.amb.reproductorapp.fileprovider",
             file
         )
     }

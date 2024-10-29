@@ -2,6 +2,7 @@ package com.sv.edu.ufg.fis.amb.reproductorapp.pages
 
 import android.Manifest
 import android.net.Uri
+import android.util.Log
 import androidx.camera.core.CameraSelector
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.video.FileOutputOptions
@@ -107,8 +108,10 @@ fun VideoRecorderPage(
                                 if (event is VideoRecordEvent.Finalize) {
                                     if (!event.hasError()) {
                                         onVideoRecorded(Uri.fromFile(file))
+                                        Log.e("ERROR", "RECORDING SUCCESS")
                                     } else {
                                         // Manejar error
+                                        Log.e("ERROR", "HUBO UN ERROR EN SALVAR")
                                     }
                                     recording = null
                                 }
@@ -116,6 +119,7 @@ fun VideoRecorderPage(
                     } else {
                         recording?.stop()
                         recording = null
+                        Log.e("ERROR", "RECORDING NULLLLLLLLLLL")
                     }
                 },
                 modifier = Modifier
